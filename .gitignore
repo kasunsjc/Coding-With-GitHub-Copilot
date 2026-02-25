@@ -1,0 +1,30 @@
+# Bicep Demo Project
+
+# Build outputs
+*.json
+!demo-2-arm-to-bicep/start/legacy-arm-template.json
+!demo-5-team-adoption/examples/bicepconfig.json
+
+# Azure deployment state
+.azure/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Node (if any tooling is added)
+node_modules/
+
+# Terraform (if present alongside Bicep)
+.terraform/
+*.tfstate
+*.tfstate.backup
