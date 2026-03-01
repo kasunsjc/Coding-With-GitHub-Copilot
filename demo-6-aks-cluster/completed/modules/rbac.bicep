@@ -12,8 +12,8 @@ param kubeletIdentityObjectId string
 @description('AKS cluster identity principal ID')
 param aksIdentityPrincipalId string
 
-@description('Key Vault Secrets Provider identity object ID')
-param keyVaultSecretsProviderObjectId string
+@description('Key Vault CSI driver managed identity object ID')
+param keyVaultCsiDriverObjectId string
 
 @description('Container Registry resource ID')
 param acrId string
@@ -56,11 +56,11 @@ resource acrPullRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 
 @description('Allow Key Vault Secrets Provider to read secrets')
 resource keyVaultSecretsUserRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(keyVaultId, keyVaultSecretsProviderObjectId, roleDefinitions.keyVaultSecretsUser)
+  name: guid(keyVaultId, keyVaultCsiDriverObjectId, roleDefinitions.keyVaultSecretsUser)
   scope: resourceGroup()
   properties: {
     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', roleDefinitions.keyVaultSecretsUser)
-    principalId: keyVaultSecretsProviderObjectId
+    principalId: keyVaultCsiDriverObjectId
     principalType: 'ServicePrincipal'
   }
 }

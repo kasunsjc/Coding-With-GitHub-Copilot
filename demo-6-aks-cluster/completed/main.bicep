@@ -186,7 +186,7 @@ module rbac 'modules/rbac.bicep' = {
     aksId: aks.outputs.aksId
     kubeletIdentityObjectId: aks.outputs.kubeletIdentityObjectId
     aksIdentityPrincipalId: aks.outputs.aksIdentityPrincipalId
-    keyVaultSecretsProviderObjectId: aks.outputs.keyVaultSecretsProviderObjectId
+    keyVaultCsiDriverObjectId: aks.outputs.keyVaultSecretsProviderObjectId
     acrId: acr.outputs.acrId
     keyVaultId: keyVault.outputs.keyVaultId
     vnetId: networking.outputs.vnetId
