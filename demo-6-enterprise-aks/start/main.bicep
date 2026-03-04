@@ -15,6 +15,7 @@ targetScope = 'resourceGroup'
 // - projectName (max 12 chars)
 // - kubernetesVersion (default: 1.30)
 // - aksNodeCount (default: 3, min: 1, max: 10)
+// - aksMaxNodeCount (default: 6, min: 1, max: 20) for autoscaling
 // - aksNodeVmSize (default: Standard_D4s_v5)
 // - jumpBoxAdminUsername (string, no literal default — use @secure for password)
 // - jumpBoxAdminPassword (secure string, no default)

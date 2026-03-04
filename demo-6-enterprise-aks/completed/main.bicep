@@ -31,6 +31,11 @@ param kubernetesVersion string = '1.30'
 @maxValue(10)
 param aksNodeCount int = 3
 
+@description('Maximum number of nodes for AKS autoscaling')
+@minValue(1)
+@maxValue(20)
+param aksMaxNodeCount int = 6
+
 @description('VM size for the AKS system node pool')
 param aksNodeVmSize string = 'Standard_D4s_v5'
 
@@ -242,7 +247,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2024-06-02-previ
         vnetSubnetID: vnet.properties.subnets[0].id
         enableAutoScaling: true
         minCount: 1
-        maxCount: aksNodeCount
+        maxCount: aksMaxNodeCount
       }
     ]
     addonProfiles: {
